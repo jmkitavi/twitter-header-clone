@@ -103,7 +103,7 @@ class App extends Component {
             marginTop: profileImageMarginTop
           }}>
             <Image
-              source={require('./avatar.jpg')}
+              source={require('./assets/images/avatar.jpg')}
               style={{ flex: 1, width: null, height: null}}
               >
             </Image>
