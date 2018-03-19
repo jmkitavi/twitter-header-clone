@@ -45,8 +45,8 @@ class App extends Component {
     })
 
     const headerZindex  = this.state.scrollY.interpolate({
-      inputRange: [0, HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT],
-      outputRange: [0, 1],
+      inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT) + 60 ],
+      outputRange: [0, 2],
       extrapolate: 'clamp'
     })
 
@@ -72,6 +72,7 @@ class App extends Component {
             backgroundColor: 'lightskyblue',
             height: headerHeight,
             zIndex: headerZindex,
+            elevation: headerZindex,
             alignItems: 'center',
             overflow: 'hidden'
           }}>
@@ -83,7 +84,10 @@ class App extends Component {
 
         </Animated.View>
         <ScrollView
-          style={{ flex: 1}}
+          style={{
+            flex: 1,
+            elevation: 1
+          }}
           scrollEventThrottle={16}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {y: this.state.scrollY }}}]
